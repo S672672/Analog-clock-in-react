@@ -47,8 +47,8 @@
 .hand i{
   position: absolute;
   background-color: var(--clr);
-  height:70px;
-  width: 4px;
+  height:var(--heightValue);
+  width: var(--widthValue);
   border-radius: 8px;
 }
 

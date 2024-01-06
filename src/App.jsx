@@ -32,13 +32,13 @@ export default function App() {
   return (
     <div className="wholebody">
       <div className="clock">
-        <div style={{'--clr':'yellow'}} className="hand" id='hour'>
+        <div style={{'--clr':'yellow','--heightValue':'60px','--widthValue':'10px'}} className="hand" id='hour'>
           <i></i>
         </div>
-        <div style={{'--clr':'red'}} className="hand" id = "min">
+        <div style={{'--clr':'red','--heightValue':'80px','--widthValue':'8px'}} className="hand" id = "min">
           <i></i>
         </div>
-        <div style={{'--clr':'blue'}} className="hand" id='sec'>
+        <div style={{'--clr':'blue','--heightValue':'90px','--widthValue':'4px'}} className="hand" id='sec'>
           <i></i>
         </div>
         <span style={{ "--i": 1 }}>
