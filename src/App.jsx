@@ -1,17 +1,44 @@
 import React from "react";
 import "./App.css";
+import { useEffect } from "react";
+
 
 export default function App() {
+  useEffect(() => {
+    const displayTime = () => {
+      let date = new Date();
+      let hh = date.getHours();
+      let mm = date.getMinutes();
+      let ss = date.getSeconds();
+
+      let hRotation = 30 * hh + mm / 2;
+      let mRotation = 6 * mm;
+      let sRotation = 6 * ss;
+
+      document.getElementById('hour').style.transform = `rotate(${hRotation}deg)`;
+      document.getElementById('min').style.transform = `rotate(${mRotation}deg)`;
+      document.getElementById('sec').style.transform = `rotate(${sRotation}deg)`;
+    };
+
+    // Call displayTime initially to set the initial rotation
+    displayTime();
+
+    // Set up the interval to update the clock hands every second
+    const intervalId = setInterval(displayTime, 1000);
+
+    // Clean up the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array ensures the effect runs only once on mount
   return (
     <div className="wholebody">
       <div className="clock">
-        <div style={{'--clr':'white'}} className="hand">
+        <div style={{'--clr':'yellow'}} className="hand" id='hour'>
           <i></i>
         </div>
-        <div style={{'--clr':'red'}} className="hand">
+        <div style={{'--clr':'red'}} className="hand" id = "min">
           <i></i>
         </div>
-        <div style={{'--clr':'yellow'}} className="hand">
+        <div style={{'--clr':'blue'}} className="hand" id='sec'>
           <i></i>
         </div>
         <span style={{ "--i": 1 }}>
