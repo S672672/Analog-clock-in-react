@@ -83,4 +83,11 @@
   width: 200px;
   display: flex;
   flex-direction: column;
-  };
+  }
+  .digital{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 40vh;
+  }

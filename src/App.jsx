@@ -1,12 +1,10 @@
 import React from "react";
 import "./App.css";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import Index from ".";
-
+import Digital from "./digital";
 
 export default function App() {
-  
-
   useEffect(() => {
     const displayTime = () => {
       let date = new Date();
@@ -18,9 +16,15 @@ export default function App() {
       let mRotation = 6 * mm;
       let sRotation = 6 * ss;
 
-      document.getElementById('hour').style.transform = `rotate(${hRotation}deg)`;
-      document.getElementById('min').style.transform = `rotate(${mRotation}deg)`;
-      document.getElementById('sec').style.transform = `rotate(${sRotation}deg)`;
+      document.getElementById(
+        "hour"
+      ).style.transform = `rotate(${hRotation}deg)`;
+      document.getElementById(
+        "min"
+      ).style.transform = `rotate(${mRotation}deg)`;
+      document.getElementById(
+        "sec"
+      ).style.transform = `rotate(${sRotation}deg)`;
     };
 
     // Call displayTime initially to set the initial rotation
@@ -33,16 +37,39 @@ export default function App() {
     return () => clearInterval(intervalId);
   }, []); // Empty dependency array ensures the effect runs only once on mount
   return (
-    <>
     <div className="wholebody">
       <div className="clock">
-        <div style={{'--clr':'yellow','--heightValue':'60px','--widthValue':'10px'}} className="hand" id='hour'>
+        <div
+          style={{
+            "--clr": "yellow",
+            "--heightValue": "60px",
+            "--widthValue": "10px",
+          }}
+          className="hand"
+          id="hour"
+        >
           <i></i>
         </div>
-        <div style={{'--clr':'red','--heightValue':'80px','--widthValue':'8px'}} className="hand" id = "min">
+        <div
+          style={{
+            "--clr": "red",
+            "--heightValue": "80px",
+            "--widthValue": "8px",
+          }}
+          className="hand"
+          id="min"
+        >
           <i></i>
         </div>
-        <div style={{'--clr':'blue','--heightValue':'90px','--widthValue':'4px'}} className="hand" id='sec'>
+        <div
+          style={{
+            "--clr": "blue",
+            "--heightValue": "90px",
+            "--widthValue": "4px",
+          }}
+          className="hand"
+          id="sec"
+        >
           <i></i>
         </div>
         <span style={{ "--i": 1 }}>
@@ -82,12 +109,14 @@ export default function App() {
           <b>12</b>
         </span>
       </div>
-      <div className="index">
-    <Index backgroundColor='blue' name='second' />
-    <Index backgroundColor='red' name='minute' />
-    <Index backgroundColor='yellow' name='hour' />
+      <div>
+        <div className="index">
+          <Index backgroundColor="yellow" name="hour" />
+          <Index backgroundColor="red" name="minute" />
+          <Index backgroundColor="blue" name="second" />
+        </div>
+      </div>
+      <Digital />
     </div>
-    </div>
-    </>
   );
 }
