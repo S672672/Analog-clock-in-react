@@ -43,7 +43,7 @@ export default function Digital() {
     </div>
     <div className="dateonly">
     <div>{currentTime.day}, </div>
-    <div>{currentTime.date},</div>
+    <div>{currentTime.date}</div>
     <div>{currentTime.month},</div>
     <div>{currentTime.year}</div>
     </div>
