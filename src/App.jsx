@@ -1,9 +1,12 @@
 import React from "react";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
+import Index from ".";
 
 
 export default function App() {
+  
+
   useEffect(() => {
     const displayTime = () => {
       let date = new Date();
@@ -30,6 +33,7 @@ export default function App() {
     return () => clearInterval(intervalId);
   }, []); // Empty dependency array ensures the effect runs only once on mount
   return (
+    <>
     <div className="wholebody">
       <div className="clock">
         <div style={{'--clr':'yellow','--heightValue':'60px','--widthValue':'10px'}} className="hand" id='hour'>
@@ -78,6 +82,12 @@ export default function App() {
           <b>12</b>
         </span>
       </div>
+      <div className="index">
+    <Index backgroundColor='blue' name='second' />
+    <Index backgroundColor='red' name='minute' />
+    <Index backgroundColor='yellow' name='hour' />
     </div>
+    </div>
+    </>
   );
 }
