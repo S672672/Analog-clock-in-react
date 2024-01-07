@@ -91,3 +91,9 @@
     font-weight: bold;
     margin-top: 40vh;
   }
+  .dateonly{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+  }
